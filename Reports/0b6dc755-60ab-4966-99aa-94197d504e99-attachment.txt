@@ -1,0 +1,2 @@
+❌ Error message not found — maybe login worked or locator is wrong.
+✅ Login successful — title matched.
