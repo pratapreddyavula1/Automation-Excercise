@@ -7,6 +7,8 @@ from Utilities.readProperties import Readconfig
 from Utilities.ValidatingEmail import validating_email
 from PageObjectModel.Login import LoginPage
 from PageObjectModel.Logout import LogoutPage
+from Utilities.CustomLogger import logger
+
 
 
 
@@ -18,19 +20,19 @@ class TestSignup:
     def setup_class(self, setup):
         """Fixture to initialize WebDriver and Page Object."""
         self.driver = setup
-        self.driver.get(Readconfig.getURL())
-        self.driver.maximize_window()
-        self.driver.implicitly_wait(10)
         self.signup_page = SignupPage(self.driver)
         self.login=LoginPage(self.driver)
         self.logout=LogoutPage(self.driver)
 
     def test_signup(self):
+        logger.info("********* Test_Login Started *********")
+        logger.info("Opening browser and navigating to login page")
         """Verify signup with a valid email and complete user details."""
 
         # Step 1: Navigate to Signup section
         self.signup_page.click_signup_link()
-
+        logger.info("Entering username and password")
+        logger.info("Clicking on login button")
         # Step 2: Validate and enter email
         name = "Pratap"
         email = Readconfig.getEmail()
@@ -43,6 +45,7 @@ class TestSignup:
         self.signup_page.click_signup_button()
 
         if self.signup_page.alreadyEmail_exist() == "Email Address already exist!":
+            logger.warning(f"Email already exists...skipping signup and running login.{Readconfig.getEmail()}")
             pytest.skip("Email already exists...skipping signup and running login.")
 
 
@@ -79,3 +82,5 @@ class TestSignup:
         self.signup_page.continue_btn()
         print("Welcome to"+self.signup_page.title())
         self.logout.perform_logout()
+
+        logger.info("********* Test_Login Completed *********")

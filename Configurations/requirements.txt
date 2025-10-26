@@ -4,5 +4,5 @@ pytest-xdist
 webdriver-manager
 allure-pytest
 openpyxl
-
-
+pytest-xdist
+allure

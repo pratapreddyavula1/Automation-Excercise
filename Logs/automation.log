@@ -1,0 +1,5 @@
+2025-10-25 19:13:23,643 | INFO | AutomationLogger | ********* Test_Login Started *********
+2025-10-25 19:13:23,644 | INFO | AutomationLogger | Opening browser and navigating to login page
+2025-10-25 19:13:30,084 | INFO | AutomationLogger | Entering username and password
+2025-10-25 19:13:30,085 | INFO | AutomationLogger | Clicking on login button
+2025-10-25 19:13:38,078 | WARNING | AutomationLogger | Email already exists...skipping signup and running login.abcyfdchs.12@gmail.com
